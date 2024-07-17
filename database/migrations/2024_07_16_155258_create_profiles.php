@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('firstName', 50);
             $table->string('lastName', 50)->nullable();
             $table->string('country', 50)->default('Bangladesh');
-            $table->string('pinCode', 50)->default('1234');
+            $table->string('pinCode', 50)->default('1234')->invisible();
             $table->timestamp('create_date')->useCurrent();
             $table->timestamp('update_date')->useCurrent()->useCurrentOnUpdate();
         });

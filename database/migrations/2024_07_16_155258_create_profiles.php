@@ -12,22 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('profiles', function (Blueprint $table) {
-            $table->smallIncrements('id');
-            $table->mediumInteger('col1');
-            $table->mediumText('col2');
-            $table->smallInteger('col3');
-            $table->string('col4', 1000);
-            $table->time('col5');
-            $table->timestamp('col6');
-            $table->tinyInteger('col8');
-            $table->unsignedBigInteger('col9');
-            $table->unsignedInteger('col10');
-            $table->text('col11');
-            $table->unsignedMediumInteger('col12');
-            $table->unsignedTinyInteger('col13');
-            $table->unsignedSmallInteger('col14');
-            $table->tinyText('col15');
-            $table->timestamps();
+            $table->id();
+            $table->string('email', 50)->unique();
+            $table->string('firstName', 50);
+            $table->string('lastName', 50)->nullable();
+            $table->string('country', 50)->default('Bangladesh');
+            $table->string('pinCode', 50)->default('1234');
+            $table->timestamp('create_date')->useCurrent();
+            $table->timestamp('update_date')->useCurrent()->useCurrentOnUpdate();
         });
     }
 

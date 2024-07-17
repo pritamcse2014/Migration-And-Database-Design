@@ -12,15 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('profiles', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->boolean('is_bangladeshi');
-            $table->bigInteger('vote');
-            $table->binary('photo');
-            $table->char('name', 50);
-            $table->dateTime('voting_date_time');
-            $table->date('voting_date');
-            $table->double('population');
-            $table->enum('group', ['A', 'B']);
+            $table->id();
+            $table->float('dollar');
+            $table->geometryCollection('positions');
+            $table->geometryCollection('positions_2');
+            $table->integer('population');
+            $table->ipAddress('visitor');
+            $table->json('user_details');
+            $table->longText('blog_post');
         });
     }
 
